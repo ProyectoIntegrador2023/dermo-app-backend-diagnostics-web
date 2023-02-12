@@ -1,0 +1,59 @@
+{
+    "containerDefinitions": [
+        {
+            "name": "container-dermo-app-backend-diagnostics-web",
+            "image": "966388213582.dkr.ecr.us-east-1.amazonaws.com/dermo-app-backend-diagnostics-web:latest",
+            "portMappings": [
+                {
+                    "containerPort": 3000,
+                    "protocol": "tcp"
+                }
+            ],
+            "essential": true,
+            "environment": [
+                {
+                    "name": "PORT",
+                    "value": "3000"
+                },
+                {
+                    "name": "DB_PORT",
+                    "value": "5432"
+                },
+                {
+                    "name": "DB_USER",
+                    "value": "postgres"
+                },
+                {
+                    "name": "DB_NAME",
+                    "value": "dermoapp"
+                },
+                {
+                    "name": "NODE_ENV",
+                    "value": "dev"
+                },
+                {
+                    "name": "DB_HOST",
+                    "value": "dermoapp.cv1ugamx3o3d.us-east-1.rds.amazonaws.com"
+                },
+                {
+                    "name": "DB_SCHEMA",
+                    "value": "dermoapp_medic_auth"
+                },
+                {
+                    "name": "DB_PASSWORD",
+                    "value": "postgres"
+                }
+            ]
+        }
+    ],
+    "family": "dermo-app-backend-diagnostics-web-task",
+    "executionRoleArn": "arn:aws:iam::966388213582:role/ecsTaskExecutionRole",
+    "networkMode": "awsvpc",
+    "volumes": [],
+    "placementConstraints": [],
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "cpu": "256",
+    "memory": "512"
+}
