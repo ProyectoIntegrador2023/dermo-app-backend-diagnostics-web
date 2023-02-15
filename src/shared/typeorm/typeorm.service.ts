@@ -21,7 +21,7 @@ export class TypeOrmConfigService implements TypeOrmOptionsFactory {
       migrationsTableName: 'typeorm_migrations',
       logger: 'file',
       schema: process.env.DB_SCHEMA || this.config.get<string>('DB_SCHEMA'),
-      synchronize: true, // never use TRUE in production!
+      synchronize: !!this.config.get<string>('PRODUCTION') || false, // never use TRUE in production!
     };
   }
 }
