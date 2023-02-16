@@ -5,7 +5,7 @@
             "image": "966388213582.dkr.ecr.us-east-1.amazonaws.com/dermo-app-backend-diagnostics-web:latest",
             "portMappings": [
                 {
-                    "containerPort": 3000,
+                    "containerPort": 3001,
                     "protocol": "tcp"
                 }
             ],
@@ -13,7 +13,7 @@
             "environment": [
                 {
                     "name": "PORT",
-                    "value": "3000"
+                    "value": "3001"
                 },
                 {
                     "name": "DB_PORT",
@@ -37,7 +37,7 @@
                 },
                 {
                     "name": "DB_SCHEMA",
-                    "value": "dermoapp_medic_auth"
+                    "value": "dermoapp_medic"
                 },
                 {
                     "name": "DB_PASSWORD",
