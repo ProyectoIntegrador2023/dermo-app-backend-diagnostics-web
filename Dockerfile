@@ -16,9 +16,6 @@ COPY . .
 # Build application (produces dist/ folder)
 RUN npm run build
 
-# Expose application port
-EXPOSE 3000
-
 # Start application
 CMD [ "node", "dist/main.js" ]
 
