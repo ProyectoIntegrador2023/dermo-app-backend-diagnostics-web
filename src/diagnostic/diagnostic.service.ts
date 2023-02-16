@@ -12,7 +12,7 @@ export class DiagnosticService {
   private readonly repository: Repository<Diagnostic>;
 
   public async registerDiagnostic(
-    body: DiagnosticDto,
+    body: DiagnosticDto
   ): Promise<Diagnostic | never> {
     this.logger.log('registerDiagnostic body', JSON.stringify(body));
     this.logger.log(body);
@@ -26,7 +26,7 @@ export class DiagnosticService {
     if (diagnosticTmp) {
       throw new HttpException(
         'Conflict Diagnostic Already Exist',
-        HttpStatus.CONFLICT,
+        HttpStatus.CONFLICT
       );
     }
 
@@ -34,7 +34,7 @@ export class DiagnosticService {
   }
 
   public async updateDiagnostic(
-    body: DiagnosticDto,
+    body: DiagnosticDto
   ): Promise<Diagnostic | never> {
     this.logger.log('updateDiagnostic body', body);
 

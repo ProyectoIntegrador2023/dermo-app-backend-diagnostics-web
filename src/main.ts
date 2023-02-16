@@ -12,10 +12,10 @@ async function bootstrap() {
   const config: ConfigService = app.get(ConfigService);
   const port = process.env.PORT || 3001;
 
-
   await app.listen(port, () => {
     console.log('[WEB]', `http://localhost:${port}`);
     console.log('[PROD]', `${config.get('PRODUCTION')}`);
   });
 }
+
 bootstrap();

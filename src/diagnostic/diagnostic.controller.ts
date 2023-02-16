@@ -22,21 +22,21 @@ export class DiagnosticController {
 
   @Post('register')
   private registerDiagnostic(
-    @Body() body: DiagnosticDto,
+    @Body() body: DiagnosticDto
   ): Promise<Diagnostic | never> {
     return this.service.registerDiagnostic(body);
   }
 
   @Put('register')
   private updateDiagnostic(
-    @Body() body: DiagnosticDto,
+    @Body() body: DiagnosticDto
   ): Promise<Diagnostic | never> {
     return this.service.updateDiagnostic(body);
   }
 
   @Get(':injuryId')
   private getDiagnostic(
-    @Param() injuryId: string,
+    @Param() injuryId: string
   ): Promise<Diagnostic | never | UpdateResult> {
     return this.service.queryDiagnostic(injuryId);
   }
