@@ -1,3 +1,4 @@
+import { CACHE_MANAGER } from '@nestjs/common';
 import { Test, TestingModule } from '@nestjs/testing';
 import { getRepositoryToken } from '@nestjs/typeorm';
 import { Diagnostic } from './diagnostic.entity';
@@ -14,6 +15,7 @@ describe('DiagnosticService', () => {
           provide: getRepositoryToken(Diagnostic),
           useValue: {},
         },
+        { provide: CACHE_MANAGER, useValue: {} },
       ],
     }).compile();
 

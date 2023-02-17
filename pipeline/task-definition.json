@@ -42,6 +42,18 @@
                 {
                     "name": "DB_PASSWORD",
                     "value": "postgres"
+                },
+                {
+                    "name": "REDIS_HOST",
+                    "value": "redisclusterdermoapp.3rf9up.ng.0001.use1.cache.amazonaws.com"
+                },
+                {
+                    "name": "REDIS_PORT",
+                    "value": "6379"
+                },
+                {
+                    "name": "REDIS_TTL",
+                    "value": "120"
                 }
             ]
         }
