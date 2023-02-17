@@ -64,7 +64,7 @@ export class DiagnosticService {
     if (!diagnosticTmp) {
       throw new HttpException(
         'Diagnostic Not Found ' + injuryId,
-        HttpStatus.NOT_FOUND,
+        HttpStatus.NOT_FOUND
       );
     }
 

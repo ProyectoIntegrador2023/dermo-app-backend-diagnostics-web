@@ -35,9 +35,9 @@ export class DiagnosticController {
     return this.service.updateDiagnostic(body);
   }
 
-  @Get('injuryId/:injuryId')
+  @Get('injury/:injury_id')
   private getDiagnostic(
-    @Param('injuryId', ParseUUIDPipe) injuryId: string
+    @Param('injury_id', ParseUUIDPipe) injuryId: string
   ): Promise<Diagnostic | never> {
     return this.service.queryDiagnostic(injuryId);
   }
