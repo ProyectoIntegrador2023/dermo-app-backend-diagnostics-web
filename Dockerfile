@@ -16,8 +16,11 @@ COPY . .
 # Build application (produces dist/ folder)
 RUN npm run build
 
+# Expose application port
+EXPOSE 3001
+
 # Start application
 CMD [ "node", "dist/main.js" ]
 
 # docker build -t "dermo-app-backend-auth-web:0.0.1" .
-# docker run --rm -p 3000:3000 dermo-app-backend-auth-web:0.0.1
+# docker run --rm -p 3001:3001 dermo-app-backend-auth-web:0.0.1

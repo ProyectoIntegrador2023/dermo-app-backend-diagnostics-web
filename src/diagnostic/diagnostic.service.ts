@@ -58,13 +58,14 @@ export class DiagnosticService {
   }
 
   public async queryDiagnostic(injuryId: string): Promise<Diagnostic | never> {
-    this.logger.log('queryDiagnostic - injuryId', injuryId);
-
     const diagnosticTmp: Diagnostic = await this.repository.findOne({
       where: { injuryId },
     });
     if (!diagnosticTmp) {
-      throw new HttpException('Diagnostic Not Found', HttpStatus.NOT_FOUND);
+      throw new HttpException(
+        'Diagnostic Not Found ' + injuryId,
+        HttpStatus.NOT_FOUND,
+      );
     }
 
     return diagnosticTmp;

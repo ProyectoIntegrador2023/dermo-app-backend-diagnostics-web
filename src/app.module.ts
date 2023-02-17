@@ -6,6 +6,7 @@ import { getEnvPath } from './config/env.helper';
 import { HealthModule } from './health/health.module';
 import { TypeOrmConfigService } from './shared/typeorm/typeorm.service';
 import { DiagnosticModule } from './diagnostic/diagnostic.module';
+import { AppController } from './app.controller';
 
 const envFilePath: string = getEnvPath(`${__dirname}/environments`);
 
@@ -20,7 +21,7 @@ const envFilePath: string = getEnvPath(`${__dirname}/environments`);
     HealthModule,
     DiagnosticModule,
   ],
-  controllers: [],
+  controllers: [AppController],
   providers: [],
 })
 export class AppModule {}
