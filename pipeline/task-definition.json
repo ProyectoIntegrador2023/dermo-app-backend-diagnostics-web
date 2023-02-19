@@ -45,7 +45,7 @@
                 },
                 {
                     "name": "REDIS_HOST",
-                    "value": "redisclusterdermoapp.3rf9up.ng.0001.use1.cache.amazonaws.com"
+                    "value": "dermoapprediscluster.3rf9up.ng.0001.use1.cache.amazonaws.com"
                 },
                 {
                     "name": "REDIS_PORT",
