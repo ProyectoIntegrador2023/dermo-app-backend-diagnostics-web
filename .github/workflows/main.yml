@@ -78,15 +78,42 @@ jobs:
         run: npm run lint
       - name: Running Test
         run: |
+          npm run test:nowatch
+
+  sonarcloud:
+    needs: test
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 14.x
+      - name: BRANCH_NAME
+        run: echo ${{ env.BRANCH_NAME }}
+      - name: Restore cache for dev Dependencies
+        uses: actions/cache@v3
+        env:
+          cache-name: npm-node-modules
+        with:
+          path: node_modules
+          key: npm-${{ env.cache-name }}-${{ hashFiles('**/package.json') }}-dev
+      - name: Running Test
+        run: |
           npm run test:coverage
       - name: Persist Data
         uses: actions/upload-artifact@v3
         with:
           name: coverage
-          path: coverage
+          path: ./coverage
+      - name: SonarCloud Scan
+        uses: sonarsource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
   Deploy:
-    if: github.ref == 'refs/heads/develop'
+    if: github.ref == 'refs/heads/develop' || github.ref == 'refs/heads/master'
     name: "Deployment"
     runs-on: "ubuntu-20.04"
     permissions:

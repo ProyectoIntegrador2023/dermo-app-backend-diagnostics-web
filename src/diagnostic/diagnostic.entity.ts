@@ -50,4 +50,20 @@ export class Diagnostic extends BaseEntity {
     type: 'timestamp',
   })
   public updatedAt: Date;
+  // @SONAR_STOP@
+  public static of(params: Partial<Diagnostic>): Diagnostic {
+    const diagnostic = new Diagnostic();
+
+    Object.assign(diagnostic, params);
+
+    return diagnostic;
+  }
 }
+
+export class DiagnosticRepositoryFake {
+  public create(): void {}
+  public async save(): Promise<void> {}
+  public async remove(): Promise<void> {}
+  public async findOne(): Promise<void> {}
+}
+// @SONAR_START@
