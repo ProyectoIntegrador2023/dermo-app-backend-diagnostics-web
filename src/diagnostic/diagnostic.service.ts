@@ -24,9 +24,7 @@ export class DiagnosticService {
   @InjectRepository(Diagnostic)
   private readonly repository: Repository<Diagnostic>;
 
-  public async registerDiagnostic(
-    body: DiagnosticDto
-  ): Promise<Diagnostic | never> {
+  public async registerDiagnostic(body: DiagnosticDto): Promise<Diagnostic> {
     this.logger.log('registerDiagnostic body', JSON.stringify(body));
     this.logger.log(body);
     const injuryId = body.injuryId;
@@ -97,7 +95,7 @@ export class DiagnosticService {
     return diagnosticSaved;
   }
 
-  public async queryDiagnostic(injuryId: string): Promise<Diagnostic | never> {
+  public async queryDiagnostic(injuryId: string): Promise<Diagnostic> {
     const cachedData = await this.cacheManager.get<Diagnostic>(
       INJURY_REDIS_KEY + injuryId
     );
